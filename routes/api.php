@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\EstoqueController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,8 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post("ingrediente/cadastrar", 'EstoqueController@cadastrar');
-Route::get("ingredientes/getAll", 'EstoqueController@getAll');
-Route::get("ingrediente/getId/{id}", 'EstoqueController@getId');
-Route::put("ingrediente/atualizar/{id}", 'EstoqueController@atualizar');
-Route::delete("ingrediente/deletar/{id}", 'EstoqueController@deletar');
+Route::post("ingrediente/cadastrar", [EstoqueController::class, 'cadastrar']);
+Route::get("ingredientes/getAll", [EstoqueController::class, 'getAll']);
+Route::get("ingrediente/getId/{id}", [EstoqueController::class, 'getId']);
+Route::put("ingrediente/atualizar/{id}", [EstoqueController::class, 'atualizar']);
+Route::delete("ingrediente/deletar/{id}", [EstoqueController::class, 'deletar']);
