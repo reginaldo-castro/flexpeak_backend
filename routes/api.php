@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post("ingrediente/cadastrar", 'EstoqueController@cadastrar');
+Route::get("ingredientes/getAll", 'EstoqueController@getAll');
+Route::get("ingrediente/getId/{id}", 'EstoqueController@getId');
+Route::put("ingrediente/atualizar/{id}", 'EstoqueController@atualizar');
+Route::delete("ingrediente/deletar/{id}", 'EstoqueController@deletar');
